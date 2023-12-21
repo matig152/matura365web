@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Matura365</title>
+</head>
+<body onload="hidepreload()">
+    <div class="preloader">
+        <img src="pictures/logo_do_bg1.png">
+        <div class="loaderbar1"></div>
+        <div class="loaderbar2"></div>
+        <h1>ŁADOWANIE...</h1>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <img src="pictures/logo_do_bg_transp.png">
+            <a href="index.html">MATURA365</a>
+        </div>
+        <div class="navlinks">
+            <a href="baza.html">PRZEGLĄDAJ BAZĘ &#9654;</a>
+			<a href="losujzadanie.html">LOSUJ ZADANIE &#9654;</a>
+			<a href="test.html">GENERUJ TEST &#9654;</a>
+			<a href="wyborarkusza.html">GENERUJ ARKUSZ &#9654;</a>
+        </div>
+        <div class="mobileicon" onclick="mobilemenu()">
+            <div class="mobilebar"></div>
+            <div class="mobilebar"></div>
+            <div class="mobilebar"></div>
+        </div>
+    </nav>
+    <div class="mask" onclick="hideSideNav()"></div>
+    <div class="sidenav">
+        <div class="mobilenavlinks">
+            <a href="wyborarkusza.html">GENERUJ ARKUSZ &#9654;</a><br>
+            <a href="test.html">GENERUJ TEST &#9654;</a><br>
+            <a href="losujzadanie.html">LOSUJ ZADANIE &#9654;</a><br>
+            <a href="baza.html">PRZEGLĄDAJ BAZĘ &#9654;</a><br>
+            <br>
+            <a href="index.html">STRONA GŁÓWNA &#9654;</a><br>
+            <a href="instrukcje.html">INSTRUKCJE &#9654;</a><br>
+        </div>
+        <div class="sidemobileprom">
+            <p>Pobierz wersję mobilną:</p>
+            <a><img src="pictures/google-play-badge.png"></img></a>
+        </div>
+    </div>
+
+    <h1 class="wybierznagl">Wybierz rodzaj arkusza:</h1>
+    <div class="gridprzyciski">
+        <div>
+            <span><img src="pictures/formula2023.png"></span>
+            <button onclick="location.href='formula2023.html';" class="przyciskmain">FORMUŁA 2023 &#9654;</button>
+            <p>Arkusz zgodny z formułą 2023. Zawiera 36 zadań.</p>
+        </div>
+        <div>
+            <span><img src="pictures/formula2015.png"></span>
+            <button onclick="location.href='formula2015.html';" class="przyciskmain">FORMUŁA 2015 &#9654;</button>
+            <p>Arkusz zgodny z formułą 2015. Zawiera 34 zadania.</p>
+        </div>
+        <div>
+            <span><img src="pictures/malamatura.png"></span>
+            <button onclick="location.href='malamatura.html';" class="przyciskmain">MAŁA MATURA &#9654;</button>
+            <p>Arkusz zawierający po jednym zadaniu z każdego działu. Zawiera 11 zadań.</p>
+        </div>
+    </div>
+
+    <footer>
+		<div class="wrapperfoot">
+			<img id="logofooter" src="pictures/logo_do_bg1.png">
+			<p id="infofoot"><br>INFORMACJE<br><br>
+				<a href="index.html">Strona główna</a><br>
+				<a href="instrukcje.html">Instrukcje</a><br>
+				<!--<a href="polityka.html">Polityka prywatności</a>-->
+			</p>
+			<p id="menufoot"><br>MENU<br><br>
+				<a href="wyborarkusza.html">Arkusze maturalne</a><br>
+				<a href="test.html">Sprawdziany</a><br>
+				<a href="losujzadanie.html">Losowanie zadań</a><br>
+				<a href="baza.html">Baza zadań</a>
+			</p>
+			<p id="mobilnafoot">
+				<br>POBIERZ WERSJĘ MOBILNĄ:<br>
+				<a href="https://play.google.com/store/apps/details?id=com.grzelik.matura365.free&pcampaignid=web_share"><img id="play-badge" src="pictures/google-play-badge.png"></a><br><br>
+				<aa style="font-size: 20px;font-weight: lighter;">Kontakt: matura365@gmail.com</aa>
+			</p>
+			<p id="copyright" style="font-size: 15px;font-weight: 50;font-stretch: condensed; text-align: center;width: 100%;">©2023 matura365.pl. 
+				Wszelkie prawa zastrzeżone.</p>
+		</div>
+	</footer>
+</body>
+</html>

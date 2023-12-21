@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Matura365</title>
+</head>
+<body onload="formula2023()">
+    
+
+    <nav>
+        <div class="logo">
+            <img src="pictures/logo_do_bg_transp.png">
+            <a href="index.html">MATURA365</a>
+        </div>
+        <div class="navlinks">
+            <a href="baza.html">PRZEGLĄDAJ BAZĘ &#9654;</a>
+			<a href="losujzadanie.html">LOSUJ ZADANIE &#9654;</a>
+			<a href="test.html">GENERUJ TEST &#9654;</a>
+			<a href="wyborarkusza.html">GENERUJ ARKUSZ &#9654;</a>
+        </div>
+        <div class="mobileicon" onclick="mobilemenu()">
+            <div class="mobilebar"></div>
+            <div class="mobilebar"></div>
+            <div class="mobilebar"></div>
+        </div>
+    </nav>
+    <div class="mask" onclick="hideSideNav()"></div>
+    <div class="sidenav">
+        <div class="mobilenavlinks">
+            <a href="wyborarkusza.html">GENERUJ ARKUSZ &#9654;</a><br>
+            <a href="test.html">GENERUJ TEST &#9654;</a><br>
+            <a href="losujzadanie.html">LOSUJ ZADANIE &#9654;</a><br>
+            <a href="baza.html">PRZEGLĄDAJ BAZĘ &#9654;</a><br>
+            <br>
+            <a href="index.html">STRONA GŁÓWNA &#9654;</a><br>
+            <a href="instrukcje.html">INSTRUKCJE &#9654;</a><br>
+        </div>
+        <div class="sidemobileprom">
+            <p>Pobierz wersję mobilną:</p>
+            <a><img src="pictures/google-play-badge.png"></img></a>
+        </div>
+    </div>
+
+    <div class="f2023">
+        <h1>
+            Arkusz Maturalny - Formuła 2023
+        </h1>
+        <p id="arkusztresc"></p>
+    </div>
+    <div class="p2023">
+        <button id="przyciskpdf" class="przyciskmain"  onclick="zapiszPdf2023()">DRUKUJ/ZAPISZ JAKO PDF &#9654;</button>
+        <button id="przyciskodpowiedzi" class="przyciskmain" onclick="pokazOdpowiedzi2023()">POKAŻ ODPOWIEDZI &#9660;</button>
+        <button id="przyciskodpowiedziukryj" class="przyciskmain" style="display: none;"onclick="ukryjOdpowiedzi2023()">UKRYJ ODPOWIEDZI &#9650;</button>
+    </div>
+    <p id="odpowiedzi2023" class="f2023"></p>
+
+    <footer>
+		<div class="wrapperfoot">
+			<img id="logofooter" src="pictures/logo_do_bg1.png">
+			<p id="infofoot"><br>INFORMACJE<br><br>
+				<a href="index.html">Strona główna</a><br>
+				<a href="instrukcje.html">Instrukcje</a><br>
+				<!--<a href="polityka.html">Polityka prywatności</a>-->
+			</p>
+			<p id="menufoot"><br>MENU<br><br>
+				<a href="wyborarkusza.html">Arkusze maturalne</a><br>
+				<a href="test.html">Sprawdziany</a><br>
+				<a href="losujzadanie.html">Losowanie zadań</a><br>
+				<a href="baza.html">Baza zadań</a>
+			</p>
+			<p id="mobilnafoot">
+				<br>POBIERZ WERSJĘ MOBILNĄ:<br>
+				<a href="https://play.google.com/store/apps/details?id=com.grzelik.matura365.free&pcampaignid=web_share"><img id="play-badge" src="pictures/google-play-badge.png"></a><br><br>
+				<aa style="font-size: 20px;font-weight: lighter;">Kontakt: matura365@gmail.com</aa>
+			</p>
+			<p id="copyright" style="font-size: 15px;font-weight: 50;font-stretch: condensed; text-align: center;width: 100%;">©2023 matura365.pl. 
+				Wszelkie prawa zastrzeżone.</p>
+		</div>
+	</footer>
+</body>
+</html>
