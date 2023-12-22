@@ -403,13 +403,50 @@ select{
   }
   /*LOSOWANIE ZADAŃ*/
   #parametrylosowanie{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  #tematy{width: 260px;}
+  #odpowiedz{
+    width: 100%;
+    box-shadow: 1px 1px 10px black;
+    padding: 10px;
+    font-size: 24px;
+    margin-top: 40px;
+  }
 
+  /*BAZA*/
+  #zadaniaSpan{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 90px;
+    font-size: 2.5vh;
+  }
+  #odpowiedziSpan{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 90px;
+    font-size: 2.5vh;
+  }
+  .zadanieBaza{
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px grey;
+    margin: 10px 0;
+    padding: 10px;
+    padding-top: 0;
+  }
+  .zadanieBaza h5{border-bottom: none;margin: 6px}
 
-
+  #odpowiedziSpan{margin-top: 10px;}
+  .odpowiedzBaza{
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px grey;
+    margin: 10px 0;
+    padding: 10px;
+    padding-top: 0;
+  }
 
 
  /*FOOTER*/
@@ -470,8 +507,39 @@ footer{
     .navlinks a{font-size: 25px;}
 
     .wrapper{width: 900px;}
+    #instrukcja-test{margin-top: 80px;font-size: 26px;}
+    #parametry h2{font-size: 22px;}
+  select{
+    padding: 6px 10px 6px 10px;
+    font-size: 20px
+  }
+  #tematy{margin-top: 0px;}
+  .check{margin: 0px;}
+  .check:checked:after {
+      top: 10%;
+      left: 20%;
+      font-size:16px;
+  }
+  .checklabel{
+    font-family: bahnschrift;
+    font-stretch: condensed;
+    color:#000cbc;
+    font-size: 20px;
+    padding:5px;
+  }
+  #liczbazadan{
+    font-size: 20px;
+    padding:5px 10px;
+  }
+  .gridprzyciski p{font-size: 3vh;}
+  .f2023{margin-top: 80px;width:70%;margin-left: 15%;}
+  /*LOSOWANIE ZADAN*/
+  .wrapper h4{font-size: 26px;margin-bottom: 20px;}
+  div h2{font-size: 22px;}
+  #odpowiedz{font-size: 2.5vh;}
 
-    .f2023{margin-top: 80px;width:70%;margin-left: 15%;}
+
+
 }
 /*#endregion LAPTOP*/
 

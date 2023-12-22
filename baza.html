@@ -49,7 +49,83 @@
         </div>
     </div>
 
-    
+
+    <script src="baza.js"></script>
+    <div class="wrapper">
+		<h4 id="instrukcja-test">Wprowadź fitry dotyczące interesujących cię zadań.</h4>
+		<div id="parametry">
+			<div class="dzial">
+				<h2>Dział:</h2>
+					<select name="" id="dzialy" onchange="updateTematy()">
+						<option value="0">Liczby rzeczywiste</option>
+						<option value="1">Wyrażenia algebraiczne</option>
+						<option value="2">Równania i nierówności</option>
+						<option value="3">Funkcje</option>
+						<option value="4">Ciągi</option>
+						<option value="5">Trygonometria</option>
+						<option value="6">Geometria analityczna</option>
+						<option value="7">Planimetria</option>
+						<option value="8">Stereometria (bryły)</option>
+						<option value="9">Statystyka i prawdopodobieństwo</option>
+						<option value="10">Optymalizacja</option>
+					</select>
+				</div>
+			<div class="trudnosci">
+				<h2>Poziomy trudności:</h2>
+				<input type="checkbox" id="cblatwy" class="check" name="cblatwy" value=1 checked="true">
+				<label for="cblatwy" class="checklabel"> Łatwy</label><br>
+				<input type="checkbox" id="cbsredni" class="check" name="cbsredni" value=2 checked="true">
+				<label for="cbsredni" class="checklabel"> Średni</label><br>
+				<input type="checkbox" id="cbtrudny" class="check" name="cbtrudny" value=3 checked="true">
+				<label for="cbtrudny" class="checklabel"> Trudny</label><br>
+			</div>
+			<div class="tematy">
+				<h2 id="tematy">Tematy:</h2>
+				<div id="cb1">
+					<input type="checkbox" class="check" id="cb11" value=0 checked="true">
+					<label for="cb11" id="cb11l" class="checklabel">Ułamki</label><br>
+				</div>
+				<div id="cb2">
+					<input type="checkbox" class="check" id="cb22" value=1 checked="true">
+					<label for="cb22" id="cb22l" class="checklabel">Potęgi i pierwiastki</label><br>
+				</div>
+				<div id="cb3">
+					<input type="checkbox" class="check" id="cb33" value=2 checked="true">
+					<label for="cb33" id="cb33l" class="checklabel">Logarytmy</label><br>
+				</div>
+				<div id="cb4">
+					<input type="checkbox" class="check" id="cb44" value=3 checked="true">
+					<label for="cb44" id="cb44l" class="checklabel">Procenty</label><br>
+				</div>
+				<div id="cb5">
+					<input type="checkbox" class="check" id="cb55" value=4 checked="true"> 
+					<label for="cb55" id="cb55l" class="checklabel" >Zbiory i przedziały</label><br>
+				</div>
+				<div id="cb6">
+					<input type="checkbox" class="check" id="cb66" value=5>
+					<label for="cb66" id="cb66l" class="checklabel">Temat6</label><br>
+				</div>
+				<div id="cb7">
+					<input type="checkbox" class="check" id="cb77" value=6>
+					<label for="cb77" id="cb77l" class="checklabel">Temat7</label><br>
+				</div>
+				<div id="cb8">
+					<input type="checkbox" class="check" id="cb88" value=7>
+					<label for="cb88" id="cb88l" class="checklabel">Temat8</label><br>
+				</div>
+			</div>
+
+		</div>
+		<script src="test.js"></script>
+		<button id="przyciskgeneruj" class="przyciskmain"type="button" onclick="pokazBaze()" style="margin-top: 20px;">GENERUJ &#9654;</button>
+	</div>
+		<span id="zadaniaSpan" style="display: none;"></span>
+		<div id="gridprzyciskiTest">
+			<button id="przyciskpdf"  style="display:none" class="przyciskmain" type="button" onclick="zapiszPdf()">DRUKUJ/ZAPISZ JAKO PDF &#9654;</button>
+			<button id="przyciskodpowiedzi" style="display:none" class="przyciskmain"type="button" onclick="pokazOdpowiedziBaza()">POKAŻ ODPOWIEDZI &#9660;</button>
+			<button id="przyciskodpowiedziukryj" style="display:none" class="przyciskmain"type="button" onclick="ukryjOdpowiedziBaza()">UKRYJ ODPOWIEDZI &#9650;</button>
+		</div>
+		<span id="odpowiedziSpan" style="display:none"></span>
 
     <footer>
 		<div class="wrapperfoot">

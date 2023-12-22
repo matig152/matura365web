@@ -51,7 +51,7 @@
 
     <script src="losujzadanie.js"></script>
     <div class="wrapper">
-        <h4>Wprowadź kryteria losowania.</h4>
+        <h4 id="losujzadanieinfo">Wprowadź kryteria losowania.</h4>
 		<div id="parametrylosowanie">
 			<div class="dzial">
 				<h2>Dział:</h2>
@@ -70,7 +70,16 @@
 						<option value="10">Optymalizacja</option>
 					</select>
 			</div>
-			<div id="temat">
+			<div class="trudnosci">
+				<h2>Poziomy trudności:</h2>
+				<input type="checkbox" id="cblatwy" class="check" name="cblatwy" value=1 checked="true">
+				<label for="cblatwy" class="checklabel"> Łatwy</label><br>
+				<input type="checkbox" id="cbsredni" class="check" name="cbsredni" value=2 checked="true">
+				<label for="cbsredni" class="checklabel"> Średni</label><br>
+				<input type="checkbox" id="cbtrudny" class="check" name="cbtrudny" value=3 checked="true">
+				<label for="cbtrudny" class="checklabel"> Trudny</label><br>
+			</div>
+			<div id="temat" style="display: none;">
 				<h2>Temat:</h2>
 					<select name="" id="tematy" class="selectlos" >
 						<option value="8">Dowolny</option>
@@ -84,23 +93,14 @@
 						<option value="7"></option>
 					</select>
 			</div>
-			<div class="trudnosci">
-				<h2>Poziomy trudności:</h2>
-				<input type="checkbox" id="cblatwy" class="check" name="cblatwy" value=1 checked="true">
-				<label for="cblatwy" class="checklabel"> Łatwy</label><br>
-				<input type="checkbox" id="cbsredni" class="check" name="cbsredni" value=2 checked="true">
-				<label for="cbsredni" class="checklabel"> Średni</label><br>
-				<input type="checkbox" id="cbtrudny" class="check" name="cbtrudny" value=3 checked="true">
-				<label for="cbtrudny" class="checklabel"> Trudny</label><br>
-			</div>
 		</div>
-        <button id="przyciskgeneruj" style="margin-top: 40px;"class="przyciskproto"type="button" onclick="losujZadanie()">LOSUJ &#9654;</button>
-		<p id="zadania" style="display: none;"></p>
-		<button id="przyciskodpowiedz" style="margin-top: 40px;display:none;"class="przyciskproto"type="button" onclick="pokazOdpowiedz()">POKAŻ ODPOWIEDŹ &#9660;</button>
-		<button id="przyciskodpowiedzukryj" style="margin-top: 40px;display:none;"class="przyciskproto"type="button" onclick="ukryjOdpowiedz()">UKRYJ ODPOWIEDŹ &#9650;</button>
-		<p id="odpowiedz" style="text-align: center; display: none;"></p>
+        <button id="przyciskgeneruj" style="margin-top: 40px;"class="przyciskmain"type="button" onclick="losujZadanie()">LOSUJ &#9654;</button>
+		<p id="zadania" style="display: none;width:100%;margin: 0;"></p>
+		<button id="przyciskodpowiedz" style="margin-top: 40px;display:none;"class="przyciskmain"type="button" onclick="pokazOdpowiedz()">POKAŻ ODPOWIEDŹ &#9660;</button>
+		<button id="przyciskodpowiedzukryj" style="margin-top: 40px;display:none;"class="przyciskmain"type="button" onclick="ukryjOdpowiedz()">UKRYJ ODPOWIEDŹ &#9650;</button>
+		<p id="odpowiedz" style="display: none;"></p>
+		
 	</div>
-    
 
 
 
