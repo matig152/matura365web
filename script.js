@@ -85,7 +85,11 @@ function updateTematy() {
 	}
 }
 
-
+function hideLoader(){
+	document.querySelectorAll('.loader')[0].style.display = 'none';
+	document.querySelectorAll('.f2023')[0].style.display = 'block';
+	document.querySelectorAll('.p2023')[0].style.display = 'grid';
+}
 
 
 
@@ -124,6 +128,7 @@ async function formula2023(){
 	}
 	paragraph.innerHTML = tekstdozadan;
 	paragraphodp.innerHTML = tekstodp;
+	hideLoader();
 }
 
 function get(dzialjson, i) {
@@ -211,6 +216,7 @@ async function formula2015(){
 	}
 	paragraph.innerHTML = tekstdozadan;
 	paragraphodp.innerHTML = tekstodp;
+	hideLoader();
 	console.log(tekstodp)
 	 
 }
@@ -295,7 +301,8 @@ async function malaMatura(){
 	var x = window.matchMedia("(max-width: 1022px)")
 	if (x.matches) {} 
 	else {document.getElementById("przyciskpdf").style.display = 'inline';} 
-	document.getElementById("przyciskodpowiedzi").style.display = 'inline';  
+	document.getElementById("przyciskodpowiedzi").style.display = 'inline'; 
+	hideLoader(); 
 }
 function getMalaMatura(dzialjson, i) {
 	var lista = new Array;

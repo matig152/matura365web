@@ -39,59 +39,6 @@ function getParameters(){
 			temat.add(listatematow[i]);
 		}
 	}
-    if (temat.size == 0 || trudnosc.size == 0 || liczbazadan == NaN){
-		alert("Wprowadź parametry!");
-		return;
-	}
-	if (!(liczbazadan >= 1 && liczbazadan <= 10)){
-		alert("Nieprawidłowa liczba zadań!");
-		return;
-	}
-    const paragraph = document.getElementById("zadania");
-	const paragraphodp = document.getElementById("odpowiedzi");
-	var tekstzadan = ""; 
-	var lista = new Array();
-	const dzialjson = przypiszdzialjson();
-	fetch(`zadania/${dzialjson}.json`)
-		.then(res => res.json())
-		.then(data => {
-			const zadania = data;
-			var j = 0;
-			for(let i = 0; i<zadania.length; i++){
-				if(temat.has(zadania[i].temat) && trudnosc.has(zadania[i].trudnosc.toString())){
-					lista[j] = zadania[i];
-					j+=1;
-				}
-			}
-			shuffleArray(lista); 
-			lista = lista.slice(0, liczbazadan);
-			lista.sort(porownajTrudnosc);
-			//console.log(lista);
-			tekstzadan = `<h5>Dział: ${dzial}<br>`
-			if (temat.size > 1){ 
-				tekstzadan1 = "Tematy: ";
-				for(let i=0; i<temat.size; i++){
-					if (i!= temat.size - 1){
-						tekstzadan1 += `${Array.from(temat.values())[i]}, `;
-					}
-					else{
-						tekstzadan1 += `${Array.from(temat.values())[i]}`;
-					}
-				}
-				tekstzadan += tekstzadan1 + "</h5>";
-			}
-			else{tekstzadan += `Temat: ${Array.from(temat.values())[0]}</h5>`}
-			var tekstodpowiedzi = "";
-			for(let i=0;i<lista.length; i++) {
-				tekstzadan += `<h4>Zadanie ${i+1}.</h4> <p>${lista[i].tresc}</p>`;
-				tekstodpowiedzi += `<h4>Zadanie ${i+1}.</h4> <p>${lista[i].odpowiedz}</p>`
-			}
-            //console.log(tekstodpowiedzi);
-			paragraph.innerHTML = tekstzadan;
-			paragraphodp.innerHTML = tekstodpowiedzi;
-			listazadan = lista;
-		}); 
-
 }
 
 function pokazOdpowiedzi(){
@@ -121,6 +68,7 @@ function zapiszPdf(){
 
 
 function generujTest() {
+	let loader = document.querySelectorAll('.loader')[0];
     getParameters();
 	if (temat.size == 0 || trudnosc.size == 0 || liczbazadan == NaN){
 		alert("Wprowadź parametry!");
@@ -130,8 +78,7 @@ function generujTest() {
 		alert("Nieprawidłowa liczba zadań!");
 		return;
 	}
-	//top.style.display = 'block';
-	//loader.style.display = 'block';
+	loader.style.display = 'grid';
 	document.getElementById("parametry").style.display = 'none';
 	document.getElementById("przyciskgeneruj").style.display = 'none';
 	document.getElementById("instrukcja-test").style.display = 'none';
@@ -185,4 +132,5 @@ function generujTest() {
 		var x = window.matchMedia("(max-width: 1022px)")
 		if (x.matches) {} 
 		else {document.getElementById("przyciskpdf").style.display = 'block';}
+		loader.style.display = 'none';
 }

@@ -41,8 +41,10 @@ function przypiszdzialjsonrand(){
 
 function losujZadanie(){
 	getParametersLosuj();
+	if(trudnosc.size==0){alert("Wprowadź parametry!");return;}
 	const select = document.getElementById("dzialy");
 	var dzialjson = "";
+	//console.log(select.value)
 	if(select.value == 11){dzialjson = przypiszdzialjsonrand();}
 	else{dzialjson = przypiszdzialjson();}
 	document.getElementById("parametrylosowanie").style.display = 'none';
@@ -56,8 +58,10 @@ function losujZadanie(){
 		.then(res => res.json())
 		.then(data => {
 			zadania = data;
+			//console.log(dzialjson)
+			console.log("Temat:" + temat)
 			var j = 0;
-			if(temat == "Dowolny"){
+			if(temat == "Dowolny" || temat == ""){
 				for(let i = 0; i<zadania.length; i++){
 					if(trudnosc.has(zadania[i].trudnosc.toString())){
 						lista[j] = zadania[i];
@@ -74,6 +78,7 @@ function losujZadanie(){
 				}
 			}
 			zadanielosowe = lista[getRandomInt(0, lista.length)]
+			console.log(zadanielosowe)
 			var poziomstring = "";
 			if (dzial == "Dowolny"){
 				if (dzialjson == "liczbyrzeczywiste") {dzial = "Liczby rzeczywiste"}
@@ -97,6 +102,8 @@ function losujZadanie(){
 			paragraph.innerHTML = tekstzadan;
 			paragraphodp.innerHTML = tekstodpowiedzi;
 			document.getElementById("przyciskodpowiedz").style.display = 'block';
+			document.getElementById("losujzadanieinfo").style.display = 'none';
+			paragraph.style.display = 'block'
 
 
 		}); 
@@ -146,4 +153,71 @@ function przypiszdzialjson(){
 	if (select.value == 9) {dzialjson = "statystyka"}
 	if (select.value == 10) {dzialjson = "optymalizacja"}
 	return dzialjson; 
+}
+
+function pokazOdpowiedz(){
+	document.getElementById("odpowiedz").style.display = 'block'; 
+	document.getElementById("przyciskodpowiedz").style.display = 'none';  
+	document.getElementById("przyciskodpowiedzukryj").style.display = 'block';   
+}
+function ukryjOdpowiedz(){
+	document.getElementById("odpowiedz").style.display = 'none'; 
+	document.getElementById("przyciskodpowiedz").style.display = 'block';  
+	document.getElementById("przyciskodpowiedzukryj").style.display = 'none'; 
+}
+function losujZadanieGlowna(){
+	let dzialjson = przypiszdzialjsonrand();
+	const paragraph = document.getElementById("tresczadlosowe");
+	const paragraphodp = document.getElementById("odpowiedz");
+	var tekstzadan = "";
+	var tekstodpowiedzi = "";
+	var lista = new Array();
+	fetch(`zadania/${dzialjson}.json`)
+		.then(res => res.json())
+		.then(data => {
+			zadania = data;
+			var j = 0;
+			for(let i = 0; i<zadania.length; i++){lista[j] = zadania[i];j+=1;}
+			zadanielosowe = lista[getRandomInt(0, lista.length)]
+			tekstzadan += `<h5 style="border-bottom: none; margin-bottom: 0px;">Dział: ${dzialJsonToString(dzialjson)}<br>Temat: ${zadanielosowe.temat}<br>Poziom trudności: ${poziomtrudnoscistring(zadanielosowe.trudnosc)}</h5>`;
+			tekstzadan +=  `<p><br>${zadanielosowe.tresc}</p>`;
+			tekstodpowiedzi += `<p>${zadanielosowe.odpowiedz}</p>`;
+			paragraph.innerHTML = tekstzadan;
+			paragraphodp.innerHTML = tekstodpowiedzi;
+		}); 
+}
+
+function poziomtrudnoscistring(p){
+    switch (p){
+        case 1: return "łatwy"; 
+        case 2: return "średni";
+        case 3: return "trudny";
+        default: return "średni";
+    }
+}
+function dzialJsonToString(d){
+	switch(d){
+		case "liczbyrzeczywiste": return "Liczby rzeczywiste";
+		case "wyrazeniaalgebraiczne": return "Wyrażenia algebraiczne";
+		case "rownania": return "Równania i nierówności";
+		case "funkcje": return "Funkcje";
+		case "ciagi": return "Ciągi";
+		case "trygonometria": return "Trygonometria";
+		case "geometriaanalityczna": return "Geometria analityczna";
+		case "planimetria": return "Planimetria";
+		case "stereometria": return "Stereometria";
+		case "statystyka": return "Statystyka";
+		case "optymalizacja": return "Optymalizacja";
+		default: return d;
+	}
+}
+function pokazOdpowiedzGlowna(){
+	document.getElementById("pokazodpowiedzprzycisk").style.display = "none"
+	document.getElementById("odpowiedz").style.display = "block"
+	document.getElementById("ukryjodpowiedzprzycisk").style.display = "block"
+}
+function ukryjOdpowiedzGlowna(){
+	document.getElementById("pokazodpowiedzprzycisk").style.display = "block"
+	document.getElementById("odpowiedz").style.display = "none"
+	document.getElementById("ukryjodpowiedzprzycisk").style.display = "none"
 }

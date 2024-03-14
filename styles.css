@@ -29,47 +29,61 @@ body{font-family: bahnschrift, sans-serif;font-size:2rem;margin:0;padding:0;colo
 
 /*PRELOADER*/
 .preloader{
-    background-color: var(--primary);
-    width:100%;
-    height:100vh;
-    z-index: 2;
-    position: fixed;
-    top: 0;
-    transition: opacity .5s;
+  background: #000cbc;
+  top:0;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  transition: all .5s;
 }
-.preloader img{
-    height: 120px;
-    position: inherit;
-    top: calc(50vh - 60px);
-    left: calc(50% -  60px);
+.blob{
+  position: absolute;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 50%;
+  top: calc(50% - 12.5vh);
+  left: calc(50% - 12.5vh);
+  height: 25vh;
+  width: 25vh;
 }
-.loaderbar1{
-    height: 200px;
-    width:200px;
-    position: inherit;
-    top: calc(50vh - 100px);
-    left: calc(50% -  100px);
-    border-radius: 100px;
-    border-top: 3px solid var(--secondary);
-    animation: Rotate .8s infinite linear;
+#blob1{
+  background-color: #8cfffb;
+  animation: Rotate infinite .8s;
 }
-.loaderbar2{
-    height: 220px;
-    width:220px;
-    position: inherit;
-    top: calc(50vh - 110px);
-    left: calc(50% -  110px);
-    border-radius: 110px;
-    border-bottom: 3px solid var(--tertiary);
-    animation: Rotate .8s infinite reverse linear;
+#blob2{
+  background-color: #209cfe;
+  animation: Rotate2 infinite 1.2s;
 }
-.preloader h1{
-    color: var(--tertiary);
-    font-weight: 300;
-    font-size: 30px;
-    position: inherit;
-    top: 80vh;
-    left: calc(50% - 60px);
+#blob3{
+  background-color: #000cbc;
+  border-radius: 30% 70% 30% 70%;
+  animation: blob infinite linear 2s;
+}
+.preloader p{
+  position: absolute;
+  font-family: bahnschrift, sans-serif;
+  color: white;
+  text-align: center;
+  top: calc(50% - 55px);
+  left: calc(50% - 34px);
+  font-size: 25px;
+
+}
+@keyframes blob {
+  0%{border-radius: 10% 100% 10% 100%;transform: rotate(0deg);}
+  50%{border-radius: 100% 10% 100% 10%;transform: rotate(180deg);}
+  100%{border-radius: 10% 100% 10% 100%;transform: rotate(360deg);}
+}
+
+@keyframes Rotate{
+  0%{transform: scaleX(0.7)}
+  50%{transform: scaleX(1)}
+  100%{transform: scaleX(0.7)}
+}
+@keyframes Rotate2{
+  0%{transform: scaleY(0.7)}
+  50%{transform: scaleY(1)}
+  100%{transform: scaleY(0.7)}
 }
 
 
@@ -91,7 +105,6 @@ nav{
 }
 .logo{
     height:100%;
-    width:auto;
     display: flex;
     gap: 10px;
 }
@@ -100,7 +113,8 @@ nav{
     text-decoration: none;
     color:white;
     font-size: 45px;
-    display: grid;
+    display: flex;
+    text-align: left;
     place-items: center;
 }
 .navlinks{
@@ -142,13 +156,15 @@ nav{
     grid-area: loso;
     display: flex;
     flex-direction: column;
+    padding: 5px;
 }
 #losowezadanie h1{font-size: 3vh;text-align: center;}
+#losowezadanie h5{font-size: 16px;margin-top: 0;}
 #losowezadanie p{
-    margin: auto;
-    width:95%;
-    height: auto;
+    font-size: 24px;
+    margin: 20px 6px;
 }
+#losowezadanie #odpowiedz{box-shadow: none;width:auto;padding: 0;margin: 20px 6px;display: none;}
 .przyciskmain2{
     border: none;
     border-radius: .5vh;
@@ -250,6 +266,26 @@ nav{
     color: black;
 }
 .mainrefs h3{text-align: center;font-size: 3vh;font-weight: 200;color:var(--primary);}
+/*LOADER*/
+.loader{
+  height: 80vh;
+  width:90%;
+  margin: auto;
+  margin-top: 100px;
+  display: grid;
+  place-content: center center;
+  gap: 5vh;
+}
+.loader img{height: 25vh;margin: auto;
+  animation: Rotate infinite linear 1s;}
+.loader h1{font-size: 4vh;text-align: center;}
+
+#odpowiedzi2015{margin-top:20px;}
+  #odpowiedzi2023{margin-top:20px;}
+  #odpowiedzimalamatura{margin-top:20px;}
+  #odpowiedzi{margin-top: 20px;}
+#losujzadanieinfo{margin-top: 120px;}
+
 
 /*ARKUSZE*/
 .wybierznagl{
@@ -278,12 +314,59 @@ nav{
     box-shadow: 1px 1px 10px black;
     margin-top: 100px;
     padding: 2px 10px;
+    display: none;
 }
 .f2023 h1{font-size: 2.5vh;text-align: right;color:var(--primary);font-style: italic;border-bottom: 1px solid var(--primary);}
 .f2023 p{font-size: 2.5vh;}
 .f2023 h4{background-color: var(--primary);color: white;padding: 0px 4px;font-weight: 400;font-size: 2.5vh;}
-.p2023{width: 60%;display: grid; gap:10px;margin: 20px;margin-left: 20%;grid-template-columns: auto auto;}
+.p2023{width: 60%;display: none; gap:10px;margin: 20px;margin-left: 20%;grid-template-columns: auto auto;}
 #odpowiedzi2023{display: none;}
+
+
+/*INSTRUKCJe*/
+.instrukcje{
+  height: auto;
+  width: 60%;
+  margin: auto;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 20px;
+}
+.instrukcjediv{
+  height: auto;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 3fr 4fr;
+  padding: 5px;
+}
+.instrukcjequest{
+  color: #000cbc;
+  font-size: 24px;
+  padding-right: 20px;
+  text-align: right;
+  border-right: 2px solid #000cbc;
+  margin: auto;
+}
+.instrukcjeans{
+  margin: auto;
+  font-size: 24px;
+}
+.instrukcjeheader{
+  display: flex;
+  height: auto;
+  gap: 40px;
+  justify-content: space-around;
+  padding: 10px;
+}
+.instrukcjeheader img{height:200px; margin: auto;}
+.instrukcjeheader h1{
+  font-size: 30px;
+  border-bottom: 1px solid #000cbc;
+}
+.instrukcjeheader p{
+  font-size: 24px;
+}
 
 /*TESTY*/
 #instrukcja-test{margin-top: 120px;}
@@ -403,13 +486,50 @@ select{
   }
   /*LOSOWANIE ZADAŃ*/
   #parametrylosowanie{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  #tematy{width: 260px;}
+  #odpowiedz{
+    width: 100%;
+    box-shadow: 1px 1px 10px black;
+    padding: 10px;
+    font-size: 24px;
+    margin-top: 40px;
+  }
 
+  /*BAZA*/
+  #zadaniaSpan{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 90px;
+    font-size: 2.5vh;
+  }
+  #odpowiedziSpan{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 90px;
+    font-size: 2.5vh;
+  }
+  .zadanieBaza{
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px grey;
+    margin: 10px 0;
+    padding: 10px;
+    padding-top: 0;
+  }
+  .zadanieBaza h5{border-bottom: none;margin: 6px}
 
-
+  #odpowiedziSpan{margin-top: 10px;}
+  .odpowiedzBaza{
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px grey;
+    margin: 10px 0;
+    padding: 10px;
+    padding-top: 0;
+  }
 
 
  /*FOOTER*/
@@ -470,8 +590,45 @@ footer{
     .navlinks a{font-size: 25px;}
 
     .wrapper{width: 900px;}
+    #instrukcja-test{margin-top: 80px;font-size: 26px;}
+    #parametry h2{font-size: 22px;}
+  select{
+    padding: 6px 10px 6px 10px;
+    font-size: 20px
+  }
+  #tematy{margin-top: 0px;}
+  .check{margin: 0px;}
+  .check:checked:after {
+      top: 12%;
+      font-size:16px;
+      text-align: center;
+  }
+  .checklabel{
+    font-family: bahnschrift;
+    font-stretch: condensed;
+    color:#000cbc;
+    font-size: 20px;
+    padding:5px;
+  }
+  #liczbazadan{
+    font-size: 20px;
+    padding:5px 10px;
+  }
 
-    .f2023{margin-top: 80px;width:70%;margin-left: 15%;}
+  .gridprzyciski p{font-size: 3vh;}
+  .f2023{margin-top: 80px;width:60%;margin-left: 20%;}
+  #odpowiedzi2015{margin-top:20px;}
+  #odpowiedzi2023{margin-top:20px;}
+  #odpowiedzimalamatura{margin-top:20px;}
+  #odpowiedzi{margin-top: 20px;}
+  /*LOSOWANIE ZADAN*/
+  #losowezadanie p{font-size: 20px;}
+  .wrapper h4{font-size: 26px;margin-bottom: 20px;}
+  div h2{font-size: 22px;}
+  #odpowiedz{font-size: 2.5vh;}
+
+
+
 }
 /*#endregion LAPTOP*/
 
@@ -480,9 +637,9 @@ footer{
     .preloader img{top: calc(45vh - 60px);}
     .loaderbar1{top:calc(45vh - 100px)}
     .loaderbar2{top:calc(45vh - 110px)}
-    nav{height: 50px}
+    nav{height: 50px; z-index: 3;}
     .logo{gap:6px;}
-    .logo a{display: none;}
+    .logo a{font-size: 34px;margin-top: 4px;padding:0;}
     .navlinks{display: none;}
     .mask{
         display: none;
@@ -493,6 +650,7 @@ footer{
         height: 100vh;
         width:100%;
         background-color: #000000b6;
+        z-index: 1;
     }
     .mobileicon{
         display: flex;
@@ -526,6 +684,7 @@ footer{
         background: linear-gradient(150deg,var(--primary), var(--secondary));
         overflow: hidden;
         text-wrap: nowrap;
+        z-index: 2;
     }
     .mobilenavlinks{padding-top:10vh;}
     .sidenav a{color: white;text-decoration: none;}
@@ -557,7 +716,20 @@ footer{
 
     .mainrefs{grid-template-columns: 1fr;}
     .mainrefs div{border-top:none}
-    
+
+    #instrukcja-test{font-size: 1.1rem;}
+    #parametrylosowanie{grid-template-columns: auto;}
+    #tematy{margin-top: 25px;}
+    #parametry{grid-template-columns: auto;}
+    .check:checked:after {
+      top: 10%;
+      left: 20%;
+      font-size:13px;
+    }
+    h2{
+      margin-top: 30px;
+      margin-bottom: 0px;
+    }
     /*Arkusze*/
     .wybierznagl{
         font-size: 5vh;
@@ -582,7 +754,18 @@ footer{
     }
     .f2023 h1{font-size: 2.5vh;text-align: right;color:var(--primary);font-style: italic;border-bottom: 1px solid var(--primary);}
     .f2023 p{font-size: 2.5vh;}
-    .p2023{width: 90%;display: grid; gap:10px;margin: 20px;margin-left: 5%;}
+    .p2023{width: 90%;display: grid;grid-template-columns: 1fr; gap:10px;margin: 20px;margin-left: 5%;}
+
+    /*TEST*/
+    #zadania{width:95%;margin-left: 2.5%;margin-top: 80px;}
+    #odpowiedzi{margin-top: 20px;width:95%;margin-left: 2.5%;}
+
+
+    /*BAZA*/
+    #zadaniaSpan{width: 95%;margin-left: 2.5%;}
+    #gridprzyciskiTest{width: 95%;margin-left: 2.5%;}
+    #odpowiedziSpan{width: 95%;margin-left: 2.5%;}
+
 
     /*FOOTER*/
     footer{
@@ -625,6 +808,45 @@ footer{
         'mobilna mobilna'
         'info menu'
         'copy copy';
+      }
+
+      .instrukcje{
+        height: auto;
+        width: 90%;
+        margin: auto;
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 20px;
+      }
+      .instrukcjediv{
+        height: auto;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        padding: 5px;
+      }
+      .instrukcjequest{
+        font-size: 16px;
+        padding-right: 10px;
+        text-align: right;
+      }
+      .instrukcjeans{
+          text-align: right;
+        font-size: 18px;
+      }
+      .instrukcjeheader{
+        display: block;
+        margin-top: -40px;
+        padding: 0;
+      }
+      .instrukcjeheader img{display: none;}
+      .instrukcjeheader h1{
+        font-size: 30px;
+        border-bottom: 1px solid #000cbc;
+      }
+      .instrukcjeheader p{
+        font-size: 24px;
       }
 }
 /*#endregion MOBILE - VERTICAL*/
