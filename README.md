@@ -3,11 +3,6 @@
 
 ![Matura365 website landing page](pictures/preview.PNG)
 
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#functionalities)
-
 ## General info
 Matura365 is a simple app for generating math tests and exemplary matura exams for students. The questions are randomly chosen from a collection of Json files (ommited in this repository in order to protect my copyright).
 
